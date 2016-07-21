@@ -1,40 +1,42 @@
 @extends('base')
 @section('content')
+
+    {!! Form::open(array('url'=>'/add/order')) !!}
     <div class="row">
         <div class="col-md-4 col-md-offset-2">
-            <form class="text-center" action="#" method="post">
-                <!-- <input type="text" name="Name" placeholder="姓名" value=""> -->
+            <form class="text-center" action="{{url('/add/order')}}" method="post" >
                 <div class="form-group">
                     <i class="fa fa-user"></i> <label>姓名：</label>
-                    <select class="form-control" name="Name">
-                        @foreach($customers as $customer)
-                            <option value={{$customer->name}}>{{$customer->name}}</option>
-                        @endforeach
-                    </select>
+                        {{Form::select('CustomerName', $customersName), null ,['class' => 'form-control']}}
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-shopping-cart"></i>
+                    {{ Form::label('Order#:', null, ['class' => 'control-label']) }}
+                    {{ Form::text('OrderNumber', '', array_merge(['class' => 'form-control', 'placeholder'=>'订单号'])) }}
                 </div>
 
                 <div class="form-group">
-                    <i class="fa fa-shopping-cart"></i> <label>订单号：</label>
-                    <input type="text" class="form-control" name="OrderNumber" placeholder="订单号">
+                    <i class="fa fa-amazon"></i>
+                    {{ Form::label('OrderSite', null, ['class' => 'control-label']) }}
+                    {{ Form::text('OrderSite', '', array_merge(['class' => 'form-control', 'placeholder'=>'订单网站'])) }}
                 </div>
 
                 <div class="form-group">
-                    <i class="fa fa-amazon"></i> <label>订单网站：</label>
-                    <input type="text" class="form-control" name="OrderSite" placeholder="订单网站">
+                    <i class="fa fa-amazon"></i>
+                    {{ Form::label('SiteUrl', null, ['class' => 'control-label']) }}
+                    {{ Form::text('OrderSiteUrl', '', array_merge(['class' => 'form-control', 'placeholder'=>'订单网站连接'])) }}
                 </div>
 
                 <div class="form-group">
-                    <i class="fa fa-amazon"></i> <label>订单网站连接：</label>
-                    <input type="text" class="form-control" name="OrderSiteUrl" placeholder="订单网站">
-                </div>
-                <div class="form-group">
-                    <i class="fa fa-font"></i> <label>物品名称：</label>
-                    <input type="text" class="form-control" name="ProductName" placeholder="产品名称">
+                    <i class="fa fa-amazon"></i>
+                    {{ Form::label('Products', null, ['class' => 'control-label']) }}
+                    {{ Form::text('ProductName', '', array_merge(['class' => 'form-control', 'placeholder'=>'产品名称'])) }}
                 </div>
 
                 <div class="form-group">
-                    <i class="fa fa-check-square-o"></i> <label>数量：</label>
-                    <input type="number" class="form-control" name="Unit" placeholder="数量">
+                    <i class="fa fa-check-square-o"></i>
+                    {{ Form::label('Products', null, ['class' => 'control-label']) }}
+                    {{ Form::text('Unit', '', array_merge(['class' => 'form-control', 'placeholder'=>'数量'])) }}
                 </div>
         </div>
 
@@ -104,4 +106,5 @@
 
         </div>
     </div>
+    {!! Form::close() !!}
 @stop

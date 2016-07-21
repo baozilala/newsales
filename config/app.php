@@ -158,6 +158,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * 手动为 form 添加的 https://laravelcollective.com/docs/5.2/html
+         * */
+        Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*
@@ -203,6 +208,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*
+         * 手动为 form 添加的 https://laravelcollective.com/docs/5.2/html
+         * */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

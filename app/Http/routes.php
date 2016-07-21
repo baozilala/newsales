@@ -17,10 +17,16 @@ Route::get('/', function () {
 
     //index
     Route::get('customer', 'CustomersController@index');
-    Route::get('order', 'OrdersController@index');
-    Route::get('ship', 'ShipController@index');
-
-    // add
     Route::get('/add/customer', 'CustomersController@add');
+
+
+    Route::get('order', 'OrdersController@index');
     Route::get('/add/order', 'OrdersController@add');
+
+
+    Route::get('ship', 'ShipController@index');
     Route::get('/add/ship', 'ShipController@add');
+
+
+
+    Route::post('/add/order', 'OrdersController@update');
